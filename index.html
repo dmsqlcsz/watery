@@ -1,0 +1,115 @@
+<html>
+<head></head>
+<title>Watery</title>
+<style>
+
+body{position: absolute; width: 1500px; background: #e5cfff;}
+
+
+		* {margin:30; padding:20;}
+
+      #rain {width: 1px; height:10px; 
+         background: #CED8F6; border-radius:50%; 
+         position: absolute;
+         animation: drop 5s infinite; 
+         }
+
+         @keyframes drop{
+            from{ margin-top: 50px; margin-left: 100px;}
+            to{margin-top: 700px;}
+         }
+
+ 
+
+	#bubble1 {position: absolute; left: 10%; top: 30%;}
+   #bubble2 {position: absolute; right: 10%; top: 60%;}
+	#bubble3 {position: absolute; left: 30%; top: 30%;}
+   #bubble4 {position: absolute; right: 10%; top: 60%;}
+   #bubble5 {position: absolute; left: 80%; top: 100%;}
+
+   #watery1 {width: 300px;height: 700px;position: absolute; left: 50%; top: 30%;}
+   #watery2 {width: 300px;height: 700px;position: absolute; left: 50%; top: 30%;}
+
+	#blue {width: 500px;height: 500px;position: absolute; left: 43%; top: 450px;}
+	  
+
+
+   </style>
+
+<body>
+
+   <div id="rain"></div>
+   
+   <img id="bubble1" src= "bubble1.png">
+   <img id="bubble2" src="bubble2.png">
+   <img id="bubble3" src="bubble3.png">
+   <img id="bubble4" src="bubble4.png">
+    <img id="bubble5" src="bubble5.png">
+
+   <img id="watery1" src="watery1.jpg">
+   <img id="watery2" src="watery2.jpg" onclick="a()">
+
+   <img id="blue" src="blue.png"> 
+
+   <audio id="sakura1op" src="sakura1op.mp3"></audio>
+
+
+
+
+
+   <script type="text/javascript">
+      var total = 0;
+      for(var i=0;i<100;i++){
+
+         var j = document.getElementById("rainy");
+         var newrain = j.cloneNode(true);
+         newrain.style.left = Math.random()*window.innerWidth + "px";
+         newrain.style.top = Math.random()*window.innerHeight + "px";
+         newrain.style.animationDuration = Math.random()+"s";
+         newrain.style.background = randomColor();
+         document.body.appendChild(newrain);
+         
+      }
+
+         function randomColor(){
+            var a = Math.random()*100;
+            var b = Math.random()*100;
+            var c = Math.random()*100;
+            var text = "rgb("+a+","+b+","+c+")";
+            return text;
+         }
+
+        
+             var i = 0;
+      function a(){
+         i += 1;
+         if(i%2==0){
+            bubble1.style.opacity= 1;
+            bubble2.style.opacity= 1;
+            bubble3.style.opacity= 1;
+            bubble4.style.opacity= 1;
+            bubble5.style.opacity= 1;
+            watery1.style.opacity=1;
+            watery2.style.opacity=0;
+            blue.style.opacity=1;
+            }
+
+            else if(i%2 == 1){
+           bubble1.style.opacity=1;
+            bubble2.style.opacity= 1;
+            bubble3.style.opacity= 1;
+            bubble4.style.opacity= 1;
+            bubble5.style.opacity= 1;
+            watery1.style.opacity=0;
+            watery2.style.opacity=1;
+            blue.style.opacity=1;
+               sakura1op.play();
+            }
+      
+   };
+	 		
+	 	
+        </script>
+
+</body>
+</html>
